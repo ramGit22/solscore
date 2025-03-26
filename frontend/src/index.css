@@ -1,0 +1,63 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Poppins:wght@400;500;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+  margin: 0;
+  font-family: 'Inter', 'Poppins', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background-color: #1A1A1A;
+  color: white;
+}
+
+/* Animation for neon text */
+@keyframes neon-pulse {
+  0% {
+    text-shadow: 0 0 5px #00D4FF, 0 0 10px #00D4FF;
+  }
+  50% {
+    text-shadow: 0 0 10px #00D4FF, 0 0 20px #00D4FF, 0 0 30px #00D4FF;
+  }
+  100% {
+    text-shadow: 0 0 5px #00D4FF, 0 0 10px #00D4FF;
+  }
+}
+
+.neon-text {
+  animation: neon-pulse 2s infinite alternate;
+  color: #00D4FF;
+}
+
+.neon-button {
+  position: relative;
+  overflow: hidden;
+  transition: all 0.3s ease;
+}
+
+.neon-button:hover {
+  box-shadow: 0 0 10px #00D4FF, 0 0 20px #00D4FF;
+}
+
+.neon-button::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(0, 212, 255, 0.2),
+    transparent
+  );
+  transition: all 0.6s;
+}
+
+.neon-button:hover::before {
+  left: 100%;
+}
